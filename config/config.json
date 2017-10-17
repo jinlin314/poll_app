@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jinlin314",
+    "password": "52AJin0654",
+    "database": "poll-development",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "test": {
+    "username": "DB_USERNAME",
+    "password": "DB_PASSWORD",
+    "database": "APP_test",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "production": {
+    "username": "DB_USERNAME",
+    "password": "DB_PASSWORD",
+    "database": "APP_production",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  }
+}
