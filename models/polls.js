@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
   Polls.associate = function (models) {
     // since poll and options are many-to-many relationship,
     // "through" will create an join table name 'poll_option_detail'
-    Polls.belongsToMany(models.PollOptions, {through: 'poll_option_detail'});
+    Polls.belongsToMany(models.PollOptions, {through: 'Poll_option_detail'});
+    Polls.belongsTo(models.Users);
   };
   return Polls;
 };
