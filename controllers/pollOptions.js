@@ -27,6 +27,8 @@ router.post('/', (req, res) => {
   .catch(console.error);
 });
 
+// === below methods not yet defined === //
+
 router.put('/:id', (req, res) => {
   res.json({
     msg: "Successful PUT to '/' route",
