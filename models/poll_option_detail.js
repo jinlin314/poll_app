@@ -3,11 +3,20 @@
 // store additional infos, such as votes count for each option, you can explicity define
 // the addition colomns in the model. See below: 
 module.exports = (sequelize, DataTypes) => {
-  var poll_option_detail = sequelize.define('poll_option_detail', {
+  var Poll_option_detail = sequelize.define('Poll_option_detail', {
+    id : {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     votes: {
       type: DataTypes.INTEGER,
       defaultValue: 0
     }
   });
-  return poll_option_detail;
+
+  Poll_option_detail.associate = function (models) {
+    Poll_option_detail.belongsToMany(models.Users, {through: "User_choices"})
+  };
+  return Poll_option_detail;
 };
