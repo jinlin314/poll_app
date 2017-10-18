@@ -3,13 +3,14 @@
 
 ## Setup
 
-- Edit `package.json`
-    + Add your project name, version, description, authors
-    + Add any other packages you may need
+- run npm install
 
 - Edit `config/config.json`
     + Add your username, password, and database names
 
+## RUN
+
+- npm start
 
 ## Explanations
 

@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const models = require('./models');
 const passport = require('passport');
+var path = require('path');
 
 const PORT = process.env.PORT || 8000;
 
@@ -9,15 +10,13 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use('/bin', express.static('./bin'));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-// Uncomment the following if you want to serve up static assets.
-// (You must create the public folder)
-/*
-app.use(express.static('./public'));
-*/
 
 // Uncomment the following if you want to use handlebars
 // on the backend. (You must create the views folder)
