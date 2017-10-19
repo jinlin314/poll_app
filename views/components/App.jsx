@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Home from '../containers/Home'
-import Navigation from '../components/Navbar'
-import Polls from '../components/Polls'
+import Navigation from './Navbar'
+import Polls from '../containers/Polls'
 
 const App = () => (
   <div className="primary-layout">
