@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Users.associate = function (models) {
+    // user voting record will be stored in 'User_choice' table
     Users.belongsToMany(models.Poll_option_detail, {through: 'User_choices'})
   }
 
