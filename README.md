@@ -38,19 +38,14 @@
 ## GET    
 
 - '/api/polls'
-    + returns all polls with their options included
+    + returns all polls with their options and poll_option_deatil included
+    + the votes count for each option of this poll is nested in poll object, `poll.PollOptions.Poll_option_detail.votes`
 
 - '/api/polls/:id'
     + returns poll #id with its options included
     
 - '/api/pollOptions'
     + returns all options
-    
-- '/api/poll_option_detail/?PollId=3'
-    + returns poll(id=3)'s votes counts infos for all its options
-    
-- '/api/poll_option_detail/?PollId=3&PollOptionId=1'
-    + returns poll(id=3)'s votes counts infos for its option(id=1)
     
 - '/api/users/polls'
     + returns all polls created by a signed in user
