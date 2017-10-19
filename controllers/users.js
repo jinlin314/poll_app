@@ -1,23 +1,23 @@
-const express = require('express');
-const router = express.Router();
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const models = require('../models');
-const users = models.Users;
-const polls = models.Polls;
-const pollOptions = models.PollOptions;
-const poll_option_detail = models.Poll_option_detail;
+const express = require('express')
+const router = express.Router()
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
+const models = require('../models')
+const users = models.Users
+const polls = models.Polls
+const pollOptions = models.PollOptions
+const poll_option_detail = models.Poll_option_detail
 const { mustBeLoggedIn } = require('./utils')
 
 passport.serializeUser(function(user, done){
-  done(null, user.id);
-});
+  done(null, user.id)
+})
 
 passport.deserializeUser(function(id, done){
   users.findById(id, function(err, user){
-    done(err, user);
-  });
-});
+    done(err, user)
+  })
+})
 
 passport.use('local-signup', new LocalStrategy({
     usernameField: 'email',
@@ -44,8 +44,8 @@ passport.use('local-signup', new LocalStrategy({
           done(null, createdUser)
         })
         .catch(done);
-    });
-  }));
+    })
+  }))
 
 passport.use('local-login', new LocalStrategy({
     usernameField: 'email',
@@ -71,13 +71,13 @@ passport.use('local-login', new LocalStrategy({
             })
         })
         .catch(done)
-    });
+    })
   }
-));
+))
 
-router.post('/signup', passport.authenticate('local-signup', { successRedirect: '/'}));
+router.post('/signup', passport.authenticate('local-signup', { successRedirect: '/'}))
 
-router.post('/login', passport.authenticate('local-login', {successRedirect: '/'}));
+router.post('/login', passport.authenticate('local-login', {successRedirect: '/'}))
 
 // to get all the poll this loggedin user created, include all the polls' associated options
 router.get('/polls', (req, res, next) => {
@@ -101,4 +101,4 @@ router.get('/voted', (req, res, next) => {
     .catch(next)
 })
 
-module.exports = router;
+module.exports = router

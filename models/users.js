@@ -19,18 +19,18 @@ module.exports = (sequelize, DataTypes) => {
     defaultScope: {
       attributes: {exclude: ['password_digest']}
     }
-  });
+  })
 
   Users.associate = function (models) {
     Users.belongsToMany(models.Poll_option_detail, {through: 'User_choices'})
-  };
+  }
 
   // This method is a Promisified bcrypt.compare
   Users.prototype.authenticate = function(plaintext) {
     return bcrypt.compare(plaintext, this.password_hashed)
   }
   return Users;
-};
+}
 
 function setEmailAndPassword(user) {
   user.email = user.email && user.email.toLowerCase()
