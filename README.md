@@ -1,5 +1,74 @@
-# Backend Starter Code
+# Poll App Backend code (React and React Router is set up already)
 
+# Features
+
+- Local Authentication
+    + user has to be logged to create a poll, vote on a poll
+    + user can only modified and delete polls s/he created
+    + user can vote on any polls
+    
+- Models Associations
+    + user belongsToMany polls, a poll has only one owner
+    + polls belongsToMany options, option belongs to many polls, relationship is store in join table, 'poll_option_detail'
+    + votes count for each poll & option combination is store in join table, 'poll_option_detail', as extra column called 'votes'
+    + user's voting history is store in join table, 'user_choice'
+    
+## APIs
+
+- Rules
+    + all backend routes start with '/api', e.g. localhost:8000/api/polls'
+    + you have to be logged in to access most routes, e.g, post, put and delete routes
+    
+## GET    
+
+- '/api/polls'
+    + returns all polls with their options included
+
+- '/api/polls/:id'
+    + returns poll #id with its options included
+    
+- '/api/pollOptions'
+    + returns all options
+    
+- '/api/poll_option_detail/?PollId=3'
+    + returns poll(id=3)'s votes counts infos for all its options
+    
+- '/api/poll_option_detail/?PollId=3&PollOptionId=1'
+    + returns poll(id=3)'s votes counts infos for its option(id=1)
+    
+- '/api/users/polls'
+    + returns all polls created by a signed in user
+    
+- '/api/users/voted'
+    + returns all voting history of a signed user
+    
+## POST
+
+- '/api/users/signup'
+    + new user sign up, (takes in email and password), one email can only be sign up once
+
+- '/api/users/login'
+    + user login
+
+- '/api/pollOptions'
+    + post a new option, (takes in option text)
+
+- 'api/polls'
+    + post a new polls, must be signed in
+    + need to send in a array of option ids, the input option ids will then be associated with newly created poll
+    + signed user will also become owner of this poll
+    
+## PUT
+
+- '/api/polls/:id'
+    + when an user vote for poll #id, use this rout update the option votes count 
+    + selected option's vote count will increment by 1
+    + and this voting record will also be added to the 'user-choice' table
+
+## DELETE
+
+- '/api/polls/:id'
+    + deletes a poll, all its associated voting records will also be deleted
 
 ## Setup
 
@@ -10,7 +79,8 @@
 
 ## RUN
 
-- npm start
+- npm start 
+- app will be running on port 8000
 
 ## Explanations
 
@@ -32,6 +102,3 @@
 - If you want to add views and handlebars to your server side
     + Uncomment the corresponding code in `app.js`
     + Add a `/views` folder and the appropriate templates
-
-
-

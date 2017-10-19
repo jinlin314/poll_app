@@ -40,7 +40,6 @@ passport.use('local-signup', new LocalStrategy({
           }
         })
         .then(createdUser => {
-          console.log("===== user", createdUser.email)
           done(null, createdUser)
         })
         .catch(done);
