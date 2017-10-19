@@ -3,21 +3,12 @@ import {Link} from 'react-router-dom'
 
 const Navigation = (props) => {
   return (
-  <nav className="navbar navbar-inverse">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <a className="navbar-brand">PollApp</a>
-      </div>
-      <ul className="nav navbar-nav">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/polls">Polls</Link></li>
-      </ul>
-      <ul className="nav navbar-nav navbar-right">
-        <li><Link to="/"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
-        <li><Link to="/"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
-      </ul>
+    <div className="w3-bar w3-black">
+      <Link to="/" className="w3-bar-item w3-button">PollApp</Link>
+      <Link to="/polls" className="w3-bar-item w3-button">Polls</Link>
+      <a href="#" className="w3-bar-item w3-button pull-right">Sign In</a>
+      <a href="#" className="w3-bar-item w3-button pull-right">Login In</a>
     </div>
-  </nav>
   )
 }
 

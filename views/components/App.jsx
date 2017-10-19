@@ -6,7 +6,8 @@ import Polls from '../containers/Polls'
 
 const App = () => (
   <div className="primary-layout">
-    <Navigation/>
+    <Navigation />
+
     <main>
       <Switch>
         <Route path="/" exact component={Home} />

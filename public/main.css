@@ -17,3 +17,7 @@ Body {
         width: 45%;
     }
 }
+
+.options {
+    border: solid 1px;
+}
