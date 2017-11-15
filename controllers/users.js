@@ -100,4 +100,8 @@ router.get('/voted', (req, res, next) => {
     .catch(next)
 })
 
+router.get("/whoami", (req, res) => {
+  res.send(req.user)
+})
+
 module.exports = router

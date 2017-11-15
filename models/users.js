@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       beforeUpdate: setEmailAndPassword,
     },
     defaultScope: {
-      attributes: {exclude: ['password_digest']}
+      attributes: {exclude: ['password_hashed']}
     }
   })
 
