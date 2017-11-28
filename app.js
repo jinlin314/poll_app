@@ -33,6 +33,10 @@ app.set('views', `${__dirname}/views/`);
 const controllers = require('./controllers')
 app.use('/api', controllers)
 
+app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, '/public/index.html'))
+});
+
 // First, make sure the Database tables and models are in sync
 // then, start up the server and start listening.
 models.sequelize.sync({force: false})

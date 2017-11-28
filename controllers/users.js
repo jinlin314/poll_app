@@ -76,6 +76,12 @@ passport.use('local-login', new LocalStrategy({
 
 router.post('/signup', passport.authenticate('local-signup', { successRedirect: '/'}))
 
+// app.post('/auth', passport.authenticate(
+//   'local', {
+//     session: false
+//   }), serialize, generateToken, respond);
+
+
 router.post('/login', passport.authenticate('local-login', {successRedirect: '/'}))
 
 // to get all the poll this loggedin user created, include all the polls' associated options

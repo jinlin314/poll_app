@@ -16,7 +16,7 @@ var config = {
       exclude: /node_modules/,
       loaders: ['babel-loader?presets[]=react,presets[]=es2015'],
     }]
-  }
+  },
 };
 
 module.exports = config;
