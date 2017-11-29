@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "jinlin314",
-    "password": "52AJin0654",
+    "username": "your_postgres_username",
+    "password": "your_password",
     "database": "poll-development",
     "host": "127.0.0.1",
     "dialect": "postgresql"
